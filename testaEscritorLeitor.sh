@@ -1,0 +1,1 @@
+java -classpath dist br.ufrj.diegocf.monitor.TestReaderWriter

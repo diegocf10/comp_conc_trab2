@@ -1,0 +1,1 @@
+javac src/br/ufrj/diegocf/monitor/*.java -d dist/

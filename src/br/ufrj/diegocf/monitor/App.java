@@ -15,7 +15,15 @@ public class App {
         Locale.setDefault(Locale.US);
         ReaderWriter rw = new ReaderWriter();
         CircularBuffer<SensorValue> buffer = new CircularBuffer<>(60);
-        System.out.println("from verificaApp import TestaApp, Estado\napp = TestaApp()");
+
+        if (args.length >= 1 && args[0].equals("--log")) {
+            Logger.showLog = true;
+            rw.showLog(true);
+        }
+
+        if (Logger.showLog)
+            System.out.println("from verificaApp import TestaApp, Estado\napp = TestaApp()");
+
 
         for (int i = 0; i < NUM_SENSORS; ++i) {
             sensorThreads[i] = new Thread(new Sensor(i, rw, buffer));

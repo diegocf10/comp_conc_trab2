@@ -58,21 +58,26 @@ public class Actuator implements Runnable {
 
                 double avg = numReadings == 0 ? 0.0 : (double) (totalTemperature) / numReadings;
                 String message = null;
+                String messageFull = null;
 
                 switch (state) {
                     case YELLOW_WARNING:
                         message = "Estado.AVISO_AMARELO";
+                        messageFull = "Aviso amarelo";
                         break;
                     case RED_WARNING:
                         message = "Estado.AVISO_VERMELHO";
+                        messageFull = "Aviso vermelho";
                         break;
                     default:
                         message = "Estado.CONDICAO_NORMAL";
+                        messageFull = "Condição normal";
                 }
 
-                // System.out.printf("Atuador %d: %s | Média - %f | Últimas 15 temperaturas: %s\n", this.id, message, avg);
-
-                System.out.printf("app.atuador_id_aviso_media(%d, %s, %f)\n", id, message, avg);
+                if (Logger.showLog)
+                    System.out.printf("app.atuador_id_aviso_media(%d, %s, %f)\n", id, message, avg);
+                else
+                    System.out.printf("Atuador %d: %s. Média das temperaturas: %f\n", id, messageFull, avg);
 
                 rw.releaseReadLock(id);
                 Thread.sleep(2000L);

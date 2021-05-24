@@ -1,1 +1,1 @@
-java -classpath dist br.ufrj.diegocf.monitor.App
+java -classpath dist br.ufrj.diegocf.monitor.App "$@"

@@ -32,7 +32,10 @@ public class Sensor implements Runnable {
                     buffer.add(new SensorValue(temperature, this.id));
                 }
 
-                System.out.printf("app.sensor_id_temperatura(%d, %d)\n", this.id, temperature);
+                if (Logger.showLog)
+                    System.out.printf("app.sensor_id_temperatura(%d, %d)\n", id, temperature);
+                else
+                    System.out.printf("Sensor %d: Temperatura: %d\n", id, temperature);
 
 
                 rw.releaseWriteLock(id);

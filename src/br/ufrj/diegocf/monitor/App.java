@@ -6,12 +6,12 @@ import java.util.Locale;
  * Classe que roda a aplicação principal de monitoramento de temperatura
  */
 public class App {
-    private static final int NUM_SENSORS = 4;
-    private static final int NUM_ACTUATOR = 4;
+    // cria 4 atuadores e 4 sensores
+    private static final int NUM_ACTUATOR_SENSOR = 4;
 
     public static void main(String[] args) {
-        Thread[] sensorThreads = new Thread[NUM_SENSORS];
-        Thread[] actuatorThreads = new Thread[NUM_ACTUATOR];
+        Thread[] sensorThreads = new Thread[NUM_ACTUATOR_SENSOR];
+        Thread[] actuatorThreads = new Thread[NUM_ACTUATOR_SENSOR];
         Locale.setDefault(Locale.US);
         ReaderWriter rw = new ReaderWriter();
         CircularBuffer<SensorValue> buffer = new CircularBuffer<>(60);
@@ -25,19 +25,19 @@ public class App {
             System.out.println("from verificaApp import TestaApp, Estado\napp = TestaApp()");
 
 
-        for (int i = 0; i < NUM_SENSORS; ++i) {
+        for (int i = 0; i < NUM_ACTUATOR_SENSOR; ++i) {
             sensorThreads[i] = new Thread(new Sensor(i, rw, buffer));
         }
 
-        for (int i = 0; i < NUM_ACTUATOR; ++i) {
+        for (int i = 0; i < NUM_ACTUATOR_SENSOR; ++i) {
             actuatorThreads[i] = new Thread(new Actuator(i, rw, buffer));
         }
 
-        for (int i = 0; i < NUM_SENSORS; ++i) {
+        for (int i = 0; i < NUM_ACTUATOR_SENSOR; ++i) {
             sensorThreads[i].start();
         }
 
-        for (int i = 0; i < NUM_ACTUATOR; ++i) {
+        for (int i = 0; i < NUM_ACTUATOR_SENSOR; ++i) {
             actuatorThreads[i].start();
         }
 

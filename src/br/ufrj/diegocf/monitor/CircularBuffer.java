@@ -62,7 +62,7 @@ public class CircularBuffer<T> implements Iterable<T> {
     }
 
     /**
-     * Retorna uma coleção iterável
+     * Retorna uma coleção iterável de trás para frente
      * @return
      */
     public Iterable<T> reverse() {

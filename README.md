@@ -16,22 +16,32 @@ Os bytecodes java serão criados na pasta dist
 
 ## Executar módulo que testa o padrão leitores-escritores
 
-> ./testaEscritorLeitor.sh
+> ./testaEscritorLeitor.sh > dist/testa_escritor_leitor.py
 
 ou
 
-> java -classpath dist br.ufrj.diegocf.monitor.TestReaderWriter
+> java -classpath dist br.ufrj.diegocf.monitor.TestReaderWriter > dist/testa_escritor_leitor.py
 
 A saída é um script python que pode ser executado para verificar
 a corretude do programa
+
+> python3 dist/testa_escritor_leitor.py
 
 ## Executar módulo principal (monitoramento de temperatura)
 
-> ./app.sh --log
+sem log
+
+> ./app.sh
+
+com log
+
+> ./app.sh --log > dist/testa_app.py
 
 ou
 
-> java -classpath dist br.ufrj.diegocf.monitor.App
+> java -classpath dist br.ufrj.diegocf.monitor.App --log > dist/testa_app.py
 
 A saída é um script python que pode ser executado para verificar
 a corretude do programa
+
+> python3 dist/testa_app.py

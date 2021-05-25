@@ -55,24 +55,25 @@ class Writer implements Runnable {
  * Esta classe testa o padrão leitores-escritores
  */
 public class TestReaderWriter {
-    private static final int THREAD_SIZE = 10;
+    // cria 5 atuadores e 5 sensores
+    private static final int NUM_ACTUATOR_SENSOR = 5;
 
     public static void main(String[] args) throws Exception {
         ReaderWriter rw = new ReaderWriter();
         rw.showLog(true);
-        Thread[] threads = new Thread[THREAD_SIZE];
+        Thread[] threads = new Thread[NUM_ACTUATOR_SENSOR * 2];
 
         System.out.println("import verificaLE\napp = verificaLE.LE()");
 
-        for (int i = 0; i < 6; ++i) {
+        for (int i = 0; i < NUM_ACTUATOR_SENSOR; ++i) {
             threads[i] = new Thread(new Reader(rw, i));
         }
 
-        for (int i = 6; i < 10; ++i) {
-            threads[i] = new Thread(new Writer(rw, i));
+        for (int i = 0; i < NUM_ACTUATOR_SENSOR; ++i) {
+            threads[i + NUM_ACTUATOR_SENSOR] = new Thread(new Writer(rw, i));
         }
 
-        for (int i = 0; i < THREAD_SIZE; ++i) {
+        for (int i = 0, size = NUM_ACTUATOR_SENSOR * 2; i < size; ++i) {
             threads[i].start();
         }
     }

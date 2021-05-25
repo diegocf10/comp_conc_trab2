@@ -27,7 +27,7 @@ a corretude do programa
 
 ## Executar módulo principal (monitoramento de temperatura)
 
-> ./app.sh
+> ./app.sh --log
 
 ou
 

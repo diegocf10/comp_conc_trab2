@@ -44,8 +44,8 @@ class Buffer_Circular:
             raise StopIteration
 class Estado:
     CONDICAO_NORMAL = 0
-    AVISO_AMARELO = 1
-    AVISO_VERMELHO = 2
+    ALERTA_AMARELO = 1
+    ALERTA_VERMELHO = 2
 
 class TestaApp:
     """
@@ -143,9 +143,9 @@ class TestaApp:
 
             if estado_esperado == Estado.CONDICAO_NORMAL:
                 if leituras == 5 and acima_de_35 == 5:
-                    estado_esperado = Estado.AVISO_VERMELHO
+                    estado_esperado = Estado.ALERTA_VERMELHO
                 elif leituras > 5 and leituras <= 15 and acima_de_35 >= 5:
-                    estado_esperado = Estado.AVISO_AMARELO
+                    estado_esperado = Estado.ALERTA_AMARELO
 
         media_esperada = 0
         if total > 0:

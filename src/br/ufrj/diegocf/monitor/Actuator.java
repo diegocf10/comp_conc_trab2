@@ -62,12 +62,12 @@ public class Actuator implements Runnable {
 
                 switch (state) {
                     case YELLOW_WARNING:
-                        message = "Estado.AVISO_AMARELO";
-                        messageFull = "Aviso amarelo";
+                        message = "Estado.ALERTA_AMARELO";
+                        messageFull = "Alerta amarelo";
                         break;
                     case RED_WARNING:
-                        message = "Estado.AVISO_VERMELHO";
-                        messageFull = "Aviso vermelho";
+                        message = "Estado.ALERTA_VERMELHO";
+                        messageFull = "Alerta vermelho";
                         break;
                     default:
                         message = "Estado.CONDICAO_NORMAL";

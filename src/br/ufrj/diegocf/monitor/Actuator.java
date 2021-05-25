@@ -77,7 +77,7 @@ public class Actuator implements Runnable {
                 if (Logger.showLog)
                     System.out.printf("app.atuador_id_aviso_media(%d, %s, %f)\n", id, message, avg);
                 else
-                    System.out.printf("Atuador %d: %s. Média das temperaturas: %f\n", id, messageFull, avg);
+                    System.out.printf("Atuador %d: %s. Média das temperaturas: %.2f\n", id, messageFull, avg);
 
                 rw.releaseReadLock(id);
                 Thread.sleep(2000L);

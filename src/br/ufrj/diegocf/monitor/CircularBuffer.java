@@ -6,7 +6,7 @@ import java.util.Iterator;
  * Esta classe implementa buffer circular com capacidade fixa.
  *
  * O buffer segue ordem FIFO, sobreescrevendo o elemento mais antigo caso o
- * buffer estiver cheio
+ * buffer esteja cheio
  *
  * @author Diego Costa Ferreira
  *
